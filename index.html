@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart File</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <main>
+            <h2>Vue.js Pet Depot</h2>
+            <router-link to='/hello' class="checkout" v-on:click="checkoutPage">
+                <p class="cart_value">{{cart.length}}</p>
+                <p>Checkout</p>
+            </router-link>
+        </main>
+        <div class="product">
+            <img :src="product.image" alt="">
+            <div class="info">
+                <h3>
+                    {{product.title}}
+                </h3>
+                <p>
+                    {{product.description}}
+                </p>
+                <button @click='addToCart'>Add To Cart</button>
+            </div>
+        </div>
+
+        <router-view></router-view>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    product: {
+                        id: 1001,
+                        title: "Cat Food, 25lb bag",
+                        description: "A 25 pound bag of irresistible, organic goodness for your cat.",
+                        price: 2000,
+                        image: "./assets/cat.jpg"
+                        ,
+                    },
+                    cart: [],
+                }
+            },
+            methods: {
+                checkoutPage: function () {
+                    console.log("this is something");
+                },
+                addToCart: function () {
+                    this.cart.push(this.product.id);
+                }
+            },
+        })
+
+        app.mount('#app')
+
+    </script>
+
+</body>
+
+</html>

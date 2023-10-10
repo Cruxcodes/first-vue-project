@@ -1,0 +1,29 @@
+#app img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover
+}
+
+main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.checkout{
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    background: grey;
+    padding: 0px 10px;
+    border-radius: 30px;
+}
+.cart_value{
+    margin: 0px 10px;
+}
+
+.product{
+    display: flex;
+    gap: 50px;
+}
